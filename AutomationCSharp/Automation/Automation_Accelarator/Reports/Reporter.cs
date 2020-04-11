@@ -14,6 +14,11 @@ namespace Automation.Automation_Accelarator.Reports
     {
         public static ExtentReports extent;
         public static ExtentTest test;
+        /// <summary>
+        /// Function Name :- fnCreateExtentReport
+        /// Created By :- Pankaj Kumar
+        /// Date of Creation :- 11-Apr-2020
+        /// </summary>
         public static void fnCreateExtentReport()
         {
             try
@@ -29,17 +34,29 @@ namespace Automation.Automation_Accelarator.Reports
             catch (Exception e) { Console.WriteLine(e.StackTrace); }
 
         }
-
+        /// <summary>
+        /// Function Name :- fnCloseExtentReport
+        /// Created By :- Pankaj Kumar
+        /// Date of Creation :- 11-Apr-2020
+        /// </summary>
         public static void fnCloseExtentReport()
         {
             extent.Flush();
         }
-
+        /// <summary>
+        /// Function Name :- fnCreateExtentTest
+        /// Created By :- Pankaj Kumar
+        /// Date of Creation :- 11-Apr-2020
+        /// </summary>
         public static void fnCreateExtentTest(string strTestName,string strTestDescription)
         {
             test = extent.CreateTest(strTestName, strTestDescription);
         }
-
+        /// <summary>
+        /// Function Name :- Pass
+        /// Created By :- Pankaj Kumar
+        /// Date of Creation :- 11-Apr-2020
+        /// </summary>
         public static void Pass(string strDescription)
         {
             try
@@ -48,7 +65,11 @@ namespace Automation.Automation_Accelarator.Reports
             }
             catch (Exception e) { Console.WriteLine(e.StackTrace);}           
         }
-
+        /// <summary>
+        /// Function Name :- Fail
+        /// Created By :- Pankaj Kumar
+        /// Date of Creation :- 11-Apr-2020
+        /// </summary>
         public static void Fail(string strDescription)
         {
             try
@@ -57,7 +78,11 @@ namespace Automation.Automation_Accelarator.Reports
             }
             catch (Exception e) { Console.WriteLine(e.StackTrace); }
         }
-
+        /// <summary>
+        /// Function Name :- Info
+        /// Created By :- Pankaj Kumar
+        /// Date of Creation :- 11-Apr-2020
+        /// </summary>
         public static void Info(string strDescription)
         {
             try
@@ -66,7 +91,11 @@ namespace Automation.Automation_Accelarator.Reports
             }
             catch (Exception e) { Console.WriteLine(e.StackTrace); }
         }
-
+        /// <summary>
+        /// Function Name :- Skip
+        /// Created By :- Pankaj Kumar
+        /// Date of Creation :- 11-Apr-2020
+        /// </summary>
         public static void Skip(string strDescription)
         {
             try
@@ -75,6 +104,11 @@ namespace Automation.Automation_Accelarator.Reports
             }
             catch (Exception e) { Console.WriteLine(e.StackTrace); }
         }
+        /// <summary>
+        /// Function Name :- Fatal
+        /// Created By :- Pankaj Kumar
+        /// Date of Creation :- 11-Apr-2020
+        /// </summary>
         public static void Fatal(string strDescription)
         {
             try
@@ -83,7 +117,11 @@ namespace Automation.Automation_Accelarator.Reports
             }
             catch (Exception e) { Console.WriteLine(e.StackTrace); }
         }
-
+        /// <summary>
+        /// Function Name :- fnSetConfigDetails
+        /// Created By :- Pankaj Kumar
+        /// Date of Creation :- 11-Apr-2020
+        /// </summary>
         public static ExtentHtmlReporter fnSetConfigDetails()
         {
             ExtentHtmlReporter htmlReporter = null;
