@@ -15,40 +15,40 @@ namespace Automation.Automation_Accelarator.Reports
         public static ExtentReports extent;
         public static ExtentTest test;
         /// <summary>
-        /// Function Name :- fnCreateExtentReport
+        /// Function Name :- FnCreateExtentReport
         /// Created By :- Pankaj Kumar
         /// Date of Creation :- 11-Apr-2020
         /// </summary>
-        public static void fnCreateExtentReport()
+        public static void FnCreateExtentReport()
         {
             try
             {
-                string strGlobalConfigFile = GeneralUtil.fnGetProjectFolder() + @"Automation_Accelarator\Config\Global.config";
-                ExtentHtmlReporter htmlReporter = fnSetConfigDetails();
+                string strGlobalConfigFile = GeneralUtil.FnGetProjectFolder() + @"Automation_Accelarator\Config\Global.config";
+                ExtentHtmlReporter htmlReporter = FnSetConfigDetails();
                 extent = new ExtentReports();
                 extent.AttachReporter(htmlReporter);
-                extent.AddSystemInfo("Environment", ReadConfig.fnReadTestEngineConfig(strGlobalConfigFile, "Environment"));
-                extent.AddSystemInfo("User Name", GeneralUtil.fnGetHostName());
-                extent.AddSystemInfo("IP Address", GeneralUtil.fnGetIPAddress());
+                extent.AddSystemInfo("Environment", ReadConfig.FnReadTestEngineConfig(strGlobalConfigFile, "Environment"));
+                extent.AddSystemInfo("User Name", GeneralUtil.FnGetHostName());
+                extent.AddSystemInfo("IP Address", GeneralUtil.FnGetIPAddress());
             }
             catch (Exception e) { Console.WriteLine(e.StackTrace); }
 
         }
         /// <summary>
-        /// Function Name :- fnCloseExtentReport
+        /// Function Name :- FnCloseExtentReport
         /// Created By :- Pankaj Kumar
         /// Date of Creation :- 11-Apr-2020
         /// </summary>
-        public static void fnCloseExtentReport()
+        public static void FnCloseExtentReport()
         {
             extent.Flush();
         }
         /// <summary>
-        /// Function Name :- fnCreateExtentTest
+        /// Function Name :- FnCreateExtentTest
         /// Created By :- Pankaj Kumar
         /// Date of Creation :- 11-Apr-2020
         /// </summary>
-        public static void fnCreateExtentTest(string strTestName,string strTestDescription)
+        public static void FnCreateExtentTest(string strTestName,string strTestDescription)
         {
             test = extent.CreateTest(strTestName, strTestDescription);
         }
@@ -118,21 +118,21 @@ namespace Automation.Automation_Accelarator.Reports
             catch (Exception e) { Console.WriteLine(e.StackTrace); }
         }
         /// <summary>
-        /// Function Name :- fnSetConfigDetails
+        /// Function Name :- FnSetConfigDetails
         /// Created By :- Pankaj Kumar
         /// Date of Creation :- 11-Apr-2020
         /// </summary>
-        public static ExtentHtmlReporter fnSetConfigDetails()
+        public static ExtentHtmlReporter FnSetConfigDetails()
         {
             ExtentHtmlReporter htmlReporter = null;
             try
             {
-                string strGlobalConfigFile = GeneralUtil.fnGetProjectFolder() + @"Automation_Accelarator\Config\Global.config";
-                var strReportFolder = GeneralUtil.fnGetProjectFolder() + @"Test\TestReports\CurrentReport\";
+                string strGlobalConfigFile = GeneralUtil.FnGetProjectFolder() + @"Automation_Accelarator\Config\Global.config";
+                var strReportFolder = GeneralUtil.FnGetProjectFolder() + @"Test\TestReports\CurrentReport\";
                 htmlReporter = new ExtentHtmlReporter(strReportFolder);
                 htmlReporter.Config.Theme = Theme.Dark;
-                htmlReporter.Config.DocumentTitle = ReadConfig.fnReadTestEngineConfig(strGlobalConfigFile, "DocumentTitle");
-                htmlReporter.Config.ReportName = ReadConfig.fnReadTestEngineConfig(strGlobalConfigFile, "ReportName");
+                htmlReporter.Config.DocumentTitle = ReadConfig.FnReadTestEngineConfig(strGlobalConfigFile, "DocumentTitle");
+                htmlReporter.Config.ReportName = ReadConfig.FnReadTestEngineConfig(strGlobalConfigFile, "ReportName");
                 htmlReporter.Config.Encoding = "UTF-8";
                             
             }

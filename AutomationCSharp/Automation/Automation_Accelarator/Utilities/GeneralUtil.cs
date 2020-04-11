@@ -12,32 +12,32 @@ namespace Selenium.Automation_Accelarator.Utilities
     public class GeneralUtil:TestEngine
     {
         /// <summary>
-        /// Function Name :- fnGetHostName
+        /// Function Name :- FnGetHostName
         /// Created By :- Pankaj Kumar
         /// Date of Creation :- 11-Apr-2020
         /// </summary>
-        public static string fnGetHostName()
+        public static string FnGetHostName()
         {
             string hostName = Dns.GetHostName();
             return hostName;
         }
         /// <summary>
-        /// Function Name :- fnGetIPAddress
+        /// Function Name :- FnGetIPAddress
         /// Created By :- Pankaj Kumar
         /// Date of Creation :- 11-Apr-2020
         /// </summary>
-        public static string fnGetIPAddress()
+        public static string FnGetIPAddress()
         {
             string hostName = Dns.GetHostName();
             string myIP = Dns.GetHostByName(hostName).AddressList[0].ToString();
             return myIP;
         }
         /// <summary>
-        /// Function Name :- fnGetProjectFolder
+        /// Function Name :- FnGetProjectFolder
         /// Created By :- Pankaj Kumar
         /// Date of Creation :- 11-Apr-2020
         /// </summary>
-        public static string fnGetProjectFolder()
+        public static string FnGetProjectFolder()
         {
             string pth = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
             string actualPath = pth.Substring(0, pth.LastIndexOf("bin"));
@@ -45,11 +45,11 @@ namespace Selenium.Automation_Accelarator.Utilities
             return projectPath;
         }
         /// <summary>
-        /// Function Name :- fnCopyFolder
+        /// Function Name :- FnCopyFolder
         /// Created By :- Pankaj Kumar
         /// Date of Creation :- 11-Apr-2020
         /// </summary>
-        public static Boolean fnCopyFolder(string strReootFolder,string strDestinationFolder)
+        public static Boolean FnCopyFolder(string strReootFolder,string strDestinationFolder)
         {
             Boolean blnStatus = true;
             try
@@ -65,11 +65,11 @@ namespace Selenium.Automation_Accelarator.Utilities
             return blnStatus;
         }
         /// <summary>
-        /// Function Name :- fnVerifyText
+        /// Function Name :- FnVerifyText
         /// Created By :- Pankaj Kumar
         /// Date of Creation :- 11-Apr-2020
         /// </summary>
-        public static Boolean fnVerifyText(string strText1,string strText2)
+        public static Boolean FnVerifyText(string strText1,string strText2)
         {
             Boolean blnStatus = true;
             try

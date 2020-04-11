@@ -30,8 +30,8 @@ namespace Automation.Automation_Accelarator.Accelarrator
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            objConfig = TestConfig.fnLoadTestConfig();
-            Reporter.fnCreateExtentReport();
+            objConfig = TestConfig.FnLoadTestConfig();
+            Reporter.FnCreateExtentReport();
         }
         /// <summary>
         /// Function Name :- OneTimeTearDown
@@ -41,7 +41,7 @@ namespace Automation.Automation_Accelarator.Accelarrator
         [OneTimeTearDown]
         public void OneTimeTearDown()
         {
-            Reporter.fnCloseExtentReport();
+            Reporter.FnCloseExtentReport();
         }
         /// <summary>
         /// Function Name :- Setup
@@ -53,8 +53,8 @@ namespace Automation.Automation_Accelarator.Accelarrator
         {
            string strFeatureName = this.GetType().Name;
            string strTestName = NUnit.Framework.TestContext.CurrentContext.Test.Name;
-           Reporter.fnCreateExtentTest(strTestName, "Verifying " + strFeatureName + " : " + strTestName);
-           fnGetDriver();
+           Reporter.FnCreateExtentTest(strTestName, "Verifying " + strFeatureName + " : " + strTestName);
+           FnGetDriver();
         }
         /// <summary>
         /// Function Name :- TearDown
@@ -72,30 +72,30 @@ namespace Automation.Automation_Accelarator.Accelarrator
         }
 
         /// <summary>
-        /// Function Name :- fnGetDriver
+        /// Function Name :- FnGetDriver
         /// Created By :- Pankaj Kumar
         /// Date of Creation :- 11-Apr-2020
         /// </summary>
-        public void fnGetDriver()
+        public void FnGetDriver()
         {
             try
             {
-                if(GeneralUtil.fnVerifyText(objConfig.OS,"win"))
+                if(GeneralUtil.FnVerifyText(objConfig.OS,"win"))
                 {
-                    if (GeneralUtil.fnVerifyText(objConfig.AppType, "web"))
+                    if (GeneralUtil.FnVerifyText(objConfig.AppType, "web"))
                     {
-                        if (GeneralUtil.fnVerifyText(objConfig.Browser, "chrome"))
+                        if (GeneralUtil.FnVerifyText(objConfig.Browser, "chrome"))
                         {
                             ChromeOptions chromeopt = new ChromeOptions();
                             chromeopt.AddArgument("incognito");
                             chromeopt.AcceptInsecureCertificates = true;
                             driver = new ChromeDriver(chromeopt);
                         }
-                        else if (GeneralUtil.fnVerifyText(objConfig.Browser, "firefox"))
+                        else if (GeneralUtil.FnVerifyText(objConfig.Browser, "firefox"))
                         {
                             driver = new FirefoxDriver();
                         }
-                        else if (GeneralUtil.fnVerifyText(objConfig.Browser, "ie"))
+                        else if (GeneralUtil.FnVerifyText(objConfig.Browser, "ie"))
                         {
                             driver = new InternetExplorerDriver();
                         }
@@ -103,15 +103,15 @@ namespace Automation.Automation_Accelarator.Accelarrator
                             driver.Manage().Window.Maximize();
 
                     }
-                    else if (GeneralUtil.fnVerifyText(objConfig.AppType, "app"))
+                    else if (GeneralUtil.FnVerifyText(objConfig.AppType, "app"))
                     {
-                        if (GeneralUtil.fnVerifyText(objConfig.Browser, "androidchrome"))
+                        if (GeneralUtil.FnVerifyText(objConfig.Browser, "androidchrome"))
                         {
-                            fnStartAppiumServer();
+                            FnStartAppiumServer();
                             AppiumOptions options = new AppiumOptions();
                             options.AddAdditionalCapability(MobileCapabilityType.PlatformName, "android");
                             options.AddAdditionalCapability(MobileCapabilityType.BrowserName, MobileBrowserType.Chrome);
-                            options.AddAdditionalCapability("chromedriverExecutable", ReadConfig.fngetChromeDriverPath().ToString());
+                            options.AddAdditionalCapability("chromedriverExecutable", ReadConfig.FngetChromeDriverPath().ToString());
                             options.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, objConfig.DeviceOSVersion);
                             options.AddAdditionalCapability("deviceName", objConfig.DeviceName);
                             options.AddAdditionalCapability("–session-override", true);
@@ -120,7 +120,7 @@ namespace Automation.Automation_Accelarator.Accelarrator
                         }
                         else
                         {
-                            fnStartAppiumServer();
+                            FnStartAppiumServer();
                             AppiumOptions options = new AppiumOptions();
                             options.AddAdditionalCapability(MobileCapabilityType.PlatformName, "android");
                             options.AddAdditionalCapability(MobileCapabilityType.PlatformVersion, objConfig.DeviceOSVersion);
@@ -134,20 +134,20 @@ namespace Automation.Automation_Accelarator.Accelarrator
                         }
                     }
                 }
-                else if (GeneralUtil.fnVerifyText(objConfig.OS, "mac"))
+                else if (GeneralUtil.FnVerifyText(objConfig.OS, "mac"))
                 {
-                    if (GeneralUtil.fnVerifyText(objConfig.AppType, "web"))
+                    if (GeneralUtil.FnVerifyText(objConfig.AppType, "web"))
                     {
-                        if (GeneralUtil.fnVerifyText(objConfig.Browser, "chrome"))
+                        if (GeneralUtil.FnVerifyText(objConfig.Browser, "chrome"))
                         {
 
                         }
-                        else if (GeneralUtil.fnVerifyText(objConfig.Browser, "firefox"))
+                        else if (GeneralUtil.FnVerifyText(objConfig.Browser, "firefox"))
                         {
 
                         }
                     }
-                    else if (GeneralUtil.fnVerifyText(objConfig.AppType, "app"))
+                    else if (GeneralUtil.FnVerifyText(objConfig.AppType, "app"))
                     {
 
                     }
@@ -158,11 +158,11 @@ namespace Automation.Automation_Accelarator.Accelarrator
             catch (Exception e) { Reporter.Fail("Unable to Get the Driver " + e.StackTrace); }
         }
         /// <summary>
-        /// Function Name :- fnStopAppiumServer
+        /// Function Name :- FnStopAppiumServer
         /// Created By :- Pankaj Kumar
         /// Date of Creation :- 11-Apr-2020
         /// </summary>
-        public bool fnStopAppiumServer()
+        public bool FnStopAppiumServer()
         {
             bool blnStatus = true;
             try
@@ -180,11 +180,11 @@ namespace Automation.Automation_Accelarator.Accelarrator
             return blnStatus;
         }
         /// <summary>
-        /// Function Name :- fnStartAppiumServer
+        /// Function Name :- FnStartAppiumServer
         /// Created By :- Pankaj Kumar
         /// Date of Creation :- 11-Apr-2020
         /// </summary>
-        public bool fnStartAppiumServer()
+        public bool FnStartAppiumServer()
         {
             bool blnStatus = true;
             try

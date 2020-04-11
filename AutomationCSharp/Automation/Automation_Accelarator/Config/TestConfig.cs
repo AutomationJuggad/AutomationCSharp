@@ -19,27 +19,27 @@ namespace Automation.Automation_Accelarator.Config
         public string NodeBinaryPath = null;
         public string AppiumBinaryPath = null;
         /// <summary>
-        /// Function Name :- fnLoadTestConfig
+        /// Function Name :- FnLoadTestConfig
         /// Created By :- Pankaj Kumar
         /// Date of Creation :- 11-Apr-2020
         /// </summary>
-        public static TestConfig fnLoadTestConfig()
+        public static TestConfig FnLoadTestConfig()
         {
             TestConfig testConfig = new TestConfig();
             try
             {
-                string strTestConfigFile = GeneralUtil.fnGetProjectFolder() + @"Automation_Accelarator\Config\TestConfig.config";
-                testConfig.AppType = ReadConfig.fnReadTestEngineConfig(strTestConfigFile, "AppType");
-                testConfig.Browser = ReadConfig.fnReadTestEngineConfig(strTestConfigFile, "Browser");
-                testConfig.OS = ReadConfig.fnReadTestEngineConfig(strTestConfigFile, "OS");
-                testConfig.DeviceName = ReadConfig.fnReadTestEngineConfig(strTestConfigFile, "DeviceName");
-                testConfig.DeviceOSVersion = ReadConfig.fnReadTestEngineConfig(strTestConfigFile, "DeviceOSVersion");
-                testConfig.AppPackage = ReadConfig.fnReadTestEngineConfig(strTestConfigFile, "AppPackage");
-                testConfig.AppActivity = ReadConfig.fnReadTestEngineConfig(strTestConfigFile, "AppActivity");
-                testConfig.AppiumURL = ReadConfig.fnReadTestEngineConfig(strTestConfigFile, "AppiumURL");
-                testConfig.Environment = ReadConfig.fnReadTestEngineConfig(strTestConfigFile, "Environment");
-                testConfig.NodeBinaryPath = ReadConfig.fnReadTestEngineConfig(strTestConfigFile, "NodeBinaryPath");
-                testConfig.AppiumBinaryPath = ReadConfig.fnReadTestEngineConfig(strTestConfigFile, "AppiumBinaryPath");
+                string strTestConfigFile = GeneralUtil.FnGetProjectFolder() + @"Automation_Accelarator\Config\TestConfig.config";
+                testConfig.AppType = ReadConfig.FnReadTestEngineConfig(strTestConfigFile, "AppType");
+                testConfig.Browser = ReadConfig.FnReadTestEngineConfig(strTestConfigFile, "Browser");
+                testConfig.OS = ReadConfig.FnReadTestEngineConfig(strTestConfigFile, "OS");
+                testConfig.DeviceName = ReadConfig.FnReadTestEngineConfig(strTestConfigFile, "DeviceName");
+                testConfig.DeviceOSVersion = ReadConfig.FnReadTestEngineConfig(strTestConfigFile, "DeviceOSVersion");
+                testConfig.AppPackage = ReadConfig.FnReadTestEngineConfig(strTestConfigFile, "AppPackage");
+                testConfig.AppActivity = ReadConfig.FnReadTestEngineConfig(strTestConfigFile, "AppActivity");
+                testConfig.AppiumURL = ReadConfig.FnReadTestEngineConfig(strTestConfigFile, "AppiumURL");
+                testConfig.Environment = ReadConfig.FnReadTestEngineConfig(strTestConfigFile, "Environment");
+                testConfig.NodeBinaryPath = ReadConfig.FnReadTestEngineConfig(strTestConfigFile, "NodeBinaryPath");
+                testConfig.AppiumBinaryPath = ReadConfig.FnReadTestEngineConfig(strTestConfigFile, "AppiumBinaryPath");
             }
             catch (Exception e) { Reporter.Fail("Unable to Get the Driver " + e.StackTrace); }
             

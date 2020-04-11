@@ -5,7 +5,7 @@ namespace Selenium.Automation_Accelarator.Utilities
 {
     public class ReadConfig
     {
-        public static string fngetChromeDriverPath()
+        public static string FngetChromeDriverPath()
         {
             var strValue = "";
             try
@@ -17,7 +17,7 @@ namespace Selenium.Automation_Accelarator.Utilities
             return strValue;
         }
 
-        public static string fnReadTestEngineConfig(string strConfigFile,string strConfig)
+        public static string FnReadTestEngineConfig(string strConfigFile,string strConfig)
         {
             var strValue = "";
             try
